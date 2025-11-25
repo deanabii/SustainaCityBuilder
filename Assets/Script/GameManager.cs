@@ -18,6 +18,15 @@ public class GameManager : MonoBehaviour
         UpdateUI();
     }
 
+    public bool PurchaseAction(int cost) {
+        if (count >= cost) {
+            count -= cost;
+            UpdateUI();
+            return true;
+        }
+        return false;
+    }
+
     void UpdateUI() {
         countText.text = count.ToString();
     }
