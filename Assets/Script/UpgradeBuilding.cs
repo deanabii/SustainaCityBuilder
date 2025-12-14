@@ -59,12 +59,12 @@ public class UpgradeBuilding : MonoBehaviour
     }
 
     // Tambahkan di dalam UpgradeBuilding.cs
-    // public void SaveData() {
-    //     PlayerPrefs.SetInt("Level_" + upgradeName, level); 
-    // }
+    public void SaveData() {
+        PlayerPrefs.SetInt("Level_" + upgradeName, level); 
+    }
 
-    // public void LoadData() {
-    //     level = PlayerPrefs.GetInt("Level_" + upgradeName, 0);
-    //     UpdateUI();
-    // }
+    public void LoadData() {
+        level = PlayerPrefs.GetInt("Level_" + upgradeName, 0);
+        UpdateUI();
+    }
 }

@@ -15,8 +15,7 @@ public class GameManager : MonoBehaviour
     float lastIncomeValue = 0;
 
     private void Start() {
-        // LoadGame();
-        UpdateUI();
+        LoadGame();
     }
 
     void Update() {
@@ -58,34 +57,34 @@ public class GameManager : MonoBehaviour
         incomeText.text = lastIncomeValue.ToString() + "/s";
     }
 
-    // public void SaveGame() {
-    //     PlayerPrefs.SetFloat("TotalCoins", count);
+    public void SaveGame() {
+        PlayerPrefs.SetFloat("TotalCoins", count);
 
-    //     foreach (var building in upgradeBuilding) {
-    //         building.SaveData();
-    //     }
+        foreach (var building in upgradeBuilding) {
+            building.SaveData();
+        }
 
-    //     PlayerPrefs.Save();
-    //     Debug.Log("Game Saved!");
-    // }
+        PlayerPrefs.Save();
+        Debug.Log("Game Saved!");
+    }
 
-    // public void LoadGame() {
-    //     count = PlayerPrefs.GetFloat("TotalCoins", 0);
+    public void LoadGame() {
+        count = PlayerPrefs.GetFloat("TotalCoins", 0);
 
-    //     foreach (var building in upgradeBuilding) {
-    //         building.LoadData();
-    //     }
+        foreach (var building in upgradeBuilding) {
+            building.LoadData();
+        }
 
-    //     float totalIncome = 0;
-    //     foreach (var building in upgradeBuilding) {
-    //         totalIncome += building.CalculateIncomePerSecond();
-    //     }
-    //     lastIncomeValue = totalIncome;
+        float totalIncome = 0;
+        foreach (var building in upgradeBuilding) {
+            totalIncome += building.CalculateIncomePerSecond();
+        }
+        lastIncomeValue = totalIncome;
 
-    //     UpdateUI();
-    // }
+        UpdateUI();
+    }
 
-    // private void OnApplicationQuit(){
-    //     SaveGame();
-    // }
+    private void OnApplicationQuit(){
+        SaveGame();
+    }
 }
